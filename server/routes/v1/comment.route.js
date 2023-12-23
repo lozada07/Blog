@@ -3,7 +3,7 @@ import { schemaValidator } from "../../middleware/schemaValidator.js";
 import isAuthenticate from "../../middleware/IsAuthenticate.js";
 import {
   commentSchema,
-} from "../../schemas/comment.Schema.js";
+} from "../../schemas/comment.schema.js";
 import {
   createComment,
   deleteComment,
