@@ -17,6 +17,8 @@ const CardList = () => {
   const posts = response?.slice(2);
   const [query, setQuery] = useState(valor);
 
+  console.log(valor)
+  
  useEffect(() => {
     if (valor === "") {
       console.log("Entre");
