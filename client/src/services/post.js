@@ -1,8 +1,11 @@
 import { BACKEND_URL, getToken } from "../config";
 
 export const getAllPosts = async (query) => {
-  const res = await fetch(`${BACKEND_URL}/api/v1/posts?q=${query}`);
-  console.log(res);
+  const res = await fetch(`${BACKEND_URL}/api/v1/posts?q=${query}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
   return await res.json();
 };
 
