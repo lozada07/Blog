@@ -12,7 +12,7 @@ import { categoriesPost } from "../../constans/category";
 const CardList = () => {
   const { error, loading, response, makeRequest } = useApiRequest(getAllPosts);
 
-  const valor = localStorage.getItem("valor");
+  const valor = localStorage.getItem("valor", "Sports");
   const postsRecent = response?.slice(0, 2);
   const posts = response?.slice(2);
   const [query, setQuery] = useState(valor);
