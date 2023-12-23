@@ -19,7 +19,7 @@ const CardList = () => {
 
  useEffect(() => {
     if (valor === null) {
-      localStorage.setItem("valor", "");
+      makeRequest()
     }
     makeRequest(query);
   }, [query]);
