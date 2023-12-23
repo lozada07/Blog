@@ -1,6 +1,6 @@
 import app from "./app.js";
 import dotenv from "dotenv";
-import connectDB from "./config/connectdb.js";
+import connectDB from "./config/connectDB.js";
 import { resError } from "./utils/errorHandler.js";
 import authRoute from "./routes/v1/auth.route.js";
 import postRoute from "./routes/v1/post.route.js";
