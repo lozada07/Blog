@@ -18,10 +18,12 @@ const CardList = () => {
   const [query, setQuery] = useState(valor);
 
  useEffect(() => {
-    if (valor === null) {
-      makeRequest()
+    if (valor === "") {
+      console.log("Entre");
+      makeRequest();
+    } else {
+      makeRequest(query);
     }
-    makeRequest(query);
   }, [query]);
 
   const handleOnclickQuery = (category) => () => {
