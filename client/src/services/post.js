@@ -7,6 +7,7 @@ export const getAllPosts = async (query) => {
     mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json'
+      "Access-Control-Allow-Credentials" : true
     }
   });
   return await res.json();
