@@ -3,7 +3,7 @@ import { BACKEND_URL, getToken } from "../config";
 export const getAllPosts = async (query) => {
 
   
-  const res = await fetch(`${BACKEND_URL}/api/v1/posts?q=${query}`, {
+  const res = await fetch(`${BACKEND_URL}/api/v1/posts`, {
     mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json'
