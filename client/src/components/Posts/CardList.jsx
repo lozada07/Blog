@@ -12,20 +12,13 @@ import { categoriesPost } from "../../constans/category";
 const CardList = () => {
   const { error, loading, response, makeRequest } = useApiRequest(getAllPosts);
 
-  const valor = localStorage.getItem("valor", "Sports");
+  const valor = localStorage.getItem("valor");
   const postsRecent = response?.slice(0, 2);
   const posts = response?.slice(2);
   const [query, setQuery] = useState(valor);
-
-  console.log(valor)
-  
- useEffect(() => {
-    if (valor === "") {
-      console.log("Entre");
-      makeRequest();
-    } else {
-      makeRequest(query);
-    }
+  console.log(valor);
+  useEffect(() => {
+    makeRequest(query);
   }, [query]);
 
   const handleOnclickQuery = (category) => () => {
