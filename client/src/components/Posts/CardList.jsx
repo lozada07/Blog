@@ -27,8 +27,11 @@ const CardList = () => {
   };
   // console.log(posts.length);
 
+  
   return (
     <>
+      {error && <div className="bg-red-600">{error}</div>}
+        
       {loading ? (
         <>
           <CardSkeletonPostRecent count={2} />
