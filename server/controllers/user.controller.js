@@ -6,7 +6,6 @@ import bcryptjs from "bcryptjs";
 export const updateUser = errorHandler(
   async (req, res) => {
     const { user_id } = req;
-    console.log(req.body);
 
     if (req.body.password && req.body.newPassword) {
       const password = req.body.password;

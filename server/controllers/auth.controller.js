@@ -25,7 +25,6 @@ export const register = errorHandler(
 export const login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
-  console.log("Entre");
 
   if (!user) {
     return resError(res, 404, "User not found");

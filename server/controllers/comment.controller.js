@@ -7,13 +7,10 @@ import { response } from "../utils/response.js";
 
 export const createComment = errorHandler(
   async (req, res) => {
-    console.log("Entre al createComment");
-    console.log(req.body);
     const { idPost } = req.params;
     const post = await Post.findById(idPost);
     const user = await User.findById(req.user_id);
 
-    console.log(idPost, req.body, req.user_id);
     if (!post && !user) {
       return resError(res, 400, "author_id or post_id are invalid");
     }
@@ -22,7 +19,6 @@ export const createComment = errorHandler(
       author_id: req.user_id,
       content: req.body.content,
     });
-    console.log(post.comments);
     post.comments.push(newComment._id);
     await post.save();
 

@@ -11,7 +11,6 @@ export class CustomError extends Error {
 export const errorHandler = (fc, errorMessage = "", statuscode = 400) => {
   return (req, res, next) => {
     fc(req, res).catch((error) => {
-      console.log(error);
       if (error instanceof MongoError || error instanceof MongooseError) {
         error = new CustomError(errorMessage, statuscode);
       }

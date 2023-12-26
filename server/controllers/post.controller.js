@@ -5,6 +5,7 @@ import { response } from "../utils/response.js";
 
 export const getAllPost = errorHandler(async (req, res) => {
   const { q } = req.query;
+
   const post = await Post.find({
     $or: [{ category: q }, { title: { $regex: new RegExp(q, "i") } }],
   })
@@ -13,11 +14,11 @@ export const getAllPost = errorHandler(async (req, res) => {
       select: "-password",
     })
     .sort({ _id: -1 });
+
   response(res, 200, post);
 });
 export const getAllPostUser = errorHandler(
   async (req, res) => {
-    console.log("Entre");
     const posts = await Post.find({ author_id: req.user_id }).populate({
       path: "author_id",
       select: "-password",
@@ -58,9 +59,7 @@ export const createPost = errorHandler(
   async (req, res) => {
     req.body.author_id = req.user_id;
     req.body.category = JSON.parse(req.body.category);
-    console.log("ENTRE POR ACÁ");
     const newPost = await Post.create(req.body);
-    console.log(newPost);
     response(res, 200, newPost);
   },
   "Title already exists",
@@ -72,8 +71,6 @@ export const updatePost = errorHandler(
     const { id } = req.params;
     req.body.category = JSON.parse(req.body.category);
 
-    console.log(id);
-    console.log("Controller", req.body);
     const updatePost = await Post.findByIdAndUpdate(
       id,
       { $set: req.body },

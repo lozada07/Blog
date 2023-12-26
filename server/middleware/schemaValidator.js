@@ -3,7 +3,6 @@ import { resError } from "../utils/errorHandler.js";
 
 export const schemaValidator = (schema) => (req, res, next) => {
   try {
-    console.log("Cuerpo", req.body);
     if (req.file) {
       req.body.photo = req.file.filename;
     }
@@ -13,7 +12,6 @@ export const schemaValidator = (schema) => (req, res, next) => {
 
     next();
   } catch (error) {
-    console.log(error);
     if (error instanceof ZodError) {
       resError(
         res,
