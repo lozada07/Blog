@@ -3,7 +3,6 @@ import { BACKEND_URL, getToken } from "../config";
 export const login = async (data) => {
   const res = await fetch(`${BACKEND_URL}/api/v1/auth/login`, {
     method: "POST",
-    mode: 'no-cors',
     headers: {
       "Content-Type": "application/json",
     },
