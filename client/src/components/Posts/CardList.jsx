@@ -25,7 +25,6 @@ const CardList = () => {
     setQuery(category);
     localStorage.setItem("valor", category);
   };
-  // console.log(posts.length);
 
   return (
     <>
@@ -57,8 +56,16 @@ const CardList = () => {
               ))}
             </div>
           </div>
-          <CardPostRecent postRecent={postsRecent} />
-          {posts?.length > 0 && <CardPost posts={posts} />}
+          {response?.length > 0 ? (
+            <>
+              <CardPostRecent postRecent={postsRecent} />
+              <CardPost posts={posts} />
+            </>
+          ) : (
+            <h1 className="text-center text-neutral-800 text-lg ">
+              No results found
+            </h1>
+          )}
         </>
       )}
     </>

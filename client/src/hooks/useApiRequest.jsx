@@ -6,9 +6,7 @@ const useApiRequest = (requestFunction) => {
   const [response, setResponse] = useState(null);
 
   const makeRequest = async (req = null) => {
-    setLoading(true);
     const res = await requestFunction(req);
-    console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAA");
     if (res.error) {
       setError(res.message);
       setTimeout(() => {
