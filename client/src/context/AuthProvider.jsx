@@ -36,8 +36,8 @@ export function AuthProvider({ children }) {
       setIsAuthenticated(false);
     } else {
       const res = await fetch(`${BACKEND_URL}/api/v1/auth/verifyToken`, {
+        method: "GET",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token} `,
         },
       });
