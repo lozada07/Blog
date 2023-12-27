@@ -15,7 +15,6 @@ import AlertModal from "../components/Modals/AlertModal";
 const DetailPost = () => {
   const { id } = useParams();
   const { user } = useAuth();
-  console.log(id);
   const { makeRequest, loading, response: post } = useApiRequest(getPost);
 
   useEffect(() => {

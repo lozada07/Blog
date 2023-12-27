@@ -4,7 +4,6 @@ import Categories from "./Categories";
 import { Link } from "react-router-dom";
 
 const CardPost = ({ posts }) => {
-  console.log("JODER");
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xs:mt-8 gap-8 md:gap-6 xs:m-3 lg:mt-10 lg:m-0">
       {posts?.map((post) => (

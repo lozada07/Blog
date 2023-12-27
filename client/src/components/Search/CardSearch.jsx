@@ -3,11 +3,10 @@ import { categoriesPost } from "../../constans/category";
 import Author from "../Posts/Components/Author";
 
 const CardSearch = ({ posts }) => {
-  console.log("Entre acá");
   return (
     <>
       {posts.map((post) => (
-        <Link to={`/post/${post._id}`}  key={post._id}>
+        <Link to={`/post/${post._id}`} key={post._id}>
           <div className="border-b  border-gray-300 hover:bg-gray-50 px-4 py-2 w-full flex justify-between items-center">
             <div className="space-y-1.5 max-w-[250px] ">
               <h1 className="text-sm line-clamp-1">{post.title}</h1>

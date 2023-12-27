@@ -16,25 +16,20 @@ const Contact = () => {
 
   const form = useRef();
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
-
     emailjs
       .sendForm(
-        "service_yaag415",
-        "template_k7pgnye",
+        import.meta.env.VITE_EMAILJS_SERVICE,
+        import.meta.env.VITE_EMAILJS_TEMPLATE,
         form.current,
-        "0UsPA2ZADRnmZlm2R"
+        import.meta.env.VITE_EMAILJS_API_KEY
       )
       .then(
         (result) => {
-          console.log(result.text);
           toast.success("Email sent");
           navigate("/");
           reset();
         },
-        (error) => {
-          console.log(error.text);
-        }
+        (error) => {}
       );
   });
 
@@ -47,11 +42,21 @@ const Contact = () => {
       >
         <div className="mb-4">
           <label className="text-sm">Name</label>
-          <input type="text" name="name" className="input" placeholder=" Your name" />
+          <input
+            type="text"
+            name="name"
+            className="input"
+            placeholder=" Your name"
+          />
         </div>
         <div className="mb-6">
           <label className="text-sm">Email</label>
-          <input type="email" name="email" className="input" placeholder="Your Email" />
+          <input
+            type="email"
+            name="email"
+            className="input"
+            placeholder="Your Email"
+          />
         </div>
         <div className="mb-6">
           <label className="block  text-sm font-medium mb-2" htmlFor="message">

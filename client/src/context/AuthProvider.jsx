@@ -14,11 +14,10 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); // Nuevo estado de carga
-  const [reload, setReload] = useState(true); // Nuevo estado de carga
+  const [isLoading, setIsLoading] = useState(true);
+  const [reload, setReload] = useState(true);
 
   function reloadPage() {
-    // console.log("hola")
     setReload(!reload);
   }
 
@@ -26,11 +25,10 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
     setUser(null);
-    console.log(user);
   }
 
   async function checkAuth() {
-    setIsLoading(true); // Inicia la carga
+    setIsLoading(true);
     const token = localStorage.getItem("token");
     if (!token) {
       setIsAuthenticated(false);
@@ -45,12 +43,11 @@ export function AuthProvider({ children }) {
       if (error) {
         setIsAuthenticated(false);
       } else {
-        console.log(data);
         setUser(data);
         setIsAuthenticated(true);
       }
     }
-    setIsLoading(false); // Finaliza la carga
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -63,7 +60,6 @@ export function AuthProvider({ children }) {
     setIsAuthenticated(true);
   };
 
-  // Pasa isLoading al contexto
   return (
     <AuthContext.Provider
       value={{ isAuthenticated, saveUser, user, logout, isLoading, reloadPage }}

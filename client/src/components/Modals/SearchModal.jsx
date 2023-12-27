@@ -20,7 +20,6 @@ const SearchModal = () => {
   const [data, setData] = useState(false);
 
   const handleChange = async (e) => {
-    console.log("Entre");
     const value = e.target.value;
     if (value != "") {
       setData(true);
@@ -30,9 +29,7 @@ const SearchModal = () => {
     }
   };
 
-  console.log(data);
-
-  console.log(response);
+  
 
   const handleCloseModal = () => {
     setData(false);

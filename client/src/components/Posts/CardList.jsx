@@ -16,7 +16,6 @@ const CardList = () => {
   const postsRecent = response?.slice(0, 2);
   const posts = response?.slice(2);
   const [query, setQuery] = useState(valor);
-  console.log(valor);
   useEffect(() => {
     makeRequest(query);
   }, [query]);
@@ -29,9 +28,6 @@ const CardList = () => {
   return (
     <>
       {error && <div className="bg-red-600">{error}</div>}
-      {console.log("Cargando", loading)}
-      {console.log("Response", response)}
-
 
       {loading ? (
         <>

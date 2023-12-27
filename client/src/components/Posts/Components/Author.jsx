@@ -7,9 +7,6 @@ const sizeClasses = {
 };
 
 const Author = ({ post, size }) => {
-  {
-    console.log(post);
-  }
   return (
     <div className="flex items-center space-x-2">
       <img

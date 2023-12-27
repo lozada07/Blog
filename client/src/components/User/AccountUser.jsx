@@ -45,9 +45,6 @@ const AccountUser = () => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log("Hello");
-    console.log(data.avatar.length > 0);
-
     const formData = new FormData();
 
     //Save data into formData

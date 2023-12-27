@@ -17,7 +17,6 @@ const useApiRequest = (requestFunction) => {
 
       return;
     }
-    console.log(res.data);
     setLoading(false);
     setResponse(res.data);
 

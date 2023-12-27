@@ -37,7 +37,6 @@ const UpdatePosts = () => {
 
   const [categories, setCategories] = useState(initialCategories.current);
 
-  console.log(post);
   const {
     register,
     handleSubmit,
@@ -54,7 +53,6 @@ const UpdatePosts = () => {
 
   useEffect(() => {
     if (post && !initialCategories.current) {
-      console.log(post.category);
       setCategories(post.category);
       setValue("title", post.title);
       setValue("photo", post.photo);
@@ -64,11 +62,9 @@ const UpdatePosts = () => {
   }, [post]);
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(categories);
     data.category = categories;
     const formData = new FormData();
 
-    console.log("Entre al submit");
     for (const key in data) {
       formData.append(key, data[key]);
     }
@@ -95,7 +91,6 @@ const UpdatePosts = () => {
     ) {
       setCategories([...categories, newCategory]);
     }
-    console.log(categories);
   };
 
   const removeCategory = (category) => {
