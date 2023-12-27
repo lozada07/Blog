@@ -19,10 +19,11 @@ import Error from "../ui/Error.jsx";
 import { toast } from "react-toastify";
 import { BACKEND_URL } from "../../config.js";
 import avatar from "../../assets/dd.png";
+import Loading from "../ui/Loading.jsx";
 
 const AccountUser = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { makeRequest, error } = useApiRequest(updateUser);
+  const { loading, makeRequest, error } = useApiRequest(updateUser);
   const navigate = useNavigate();
   const stopPropagation = (e) => e.stopPropagation();
   const [page, setPage] = useState(1);
@@ -59,10 +60,6 @@ const AccountUser = () => {
     } else {
       formData.delete("avatar");
     }
-
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + ", " + pair[1]);
-    // }
 
     const res = await makeRequest(formData);
     if (res != undefined) {
@@ -277,7 +274,20 @@ const AccountUser = () => {
                   >
                     Cancel
                   </button>
-                  <Button value="Save" />
+                  <Button
+                    type="submit"
+                    disabled={loading ? true : false}
+                    size="small"
+                    value={
+                      loading ? (
+                        <div className="flex items-center disabled:opacity-20 hover:cursor-not-allowed  justify-center">
+                          <Loading size="small" />
+                        </div>
+                      ) : (
+                        "Save"
+                      )
+                    }
+                  />
                 </div>
               </form>
             </motion.div>
