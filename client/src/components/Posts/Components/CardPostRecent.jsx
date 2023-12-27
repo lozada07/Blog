@@ -9,11 +9,11 @@ const CardPostRecent = ({ postRecent }) => {
       {postRecent?.map((post) => (
         <Link key={post._id} to={`/post/${post._id}`}>
           <div className=" flex  flex-col lg:flex-row space-x-3 rounded-md duration-300  h-[440px] lg:h-auto  pb-4  lg:pb-0   overflow-hidden hover:shadow-black/40 hover:shadow-2xl">
-              <img
-                src={`${BACKEND_URL}/public/${post.photo}`}
-                alt=""
-                className="bg-no-repeat bg-cover bg-center rounded-md h-60 lg:w-72 lg:h-72 w-full"
-              />
+            <img
+              src={`${BACKEND_URL}/public/${post.photo}`}
+              alt=""
+              className="bg-no-repeat bg-cover bg-center rounded-md h-60 lg:w-72 lg:h-72 w-full"
+            />
             <div className="flex flex-col justify-center mt-4 space-y-4 lg:pr-2 pb-1">
               <div className="space-y-3  ">
                 <Categories categories={post.category} />
