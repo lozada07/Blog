@@ -20,7 +20,7 @@ const useApiRequest = (requestFunction) => {
     setLoading(false);
     setResponse(res.data);
 
-    return;
+    return res.data;
   };
 
   return { makeRequest, loading, error, response };

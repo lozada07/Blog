@@ -46,6 +46,7 @@ const AuthModal = () => {
     const res = await makeRequest(datos);
     if (res) {
       const { token, user } = res;
+      console.log("Entre");
       saveUser(token, user);
       onClose();
       navigate("/");

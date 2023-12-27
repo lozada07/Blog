@@ -15,7 +15,15 @@ export const MyPosts = () => {
       {loading ? (
         <CardSkeletonPost count={10} />
       ) : (
-        <CardPost posts={response} />
+        <>
+          {response?.length > 0 ? (
+            <CardPost posts={response} />
+          ) : (
+            <h1 className="text-center text-neutral-800 text-lg h-[75px]  ">
+              No results found
+            </h1>
+          )}
+        </>
       )}
     </>
   );

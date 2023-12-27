@@ -26,11 +26,10 @@ const CardList = () => {
     localStorage.setItem("valor", category);
   };
 
-  
   return (
     <>
       {error && <div className="bg-red-600">{error}</div>}
-        
+
       {loading ? (
         <>
           <CardSkeletonPostRecent count={2} />
@@ -52,8 +51,6 @@ const CardList = () => {
                   } px-2 sm:px-3 py-1  rounded-full text-[12px] sm:text-sm font-semibold 
            flex-wrap  text-primary cursor-pointer bg-green-100`}
                 >
-                  {/* {console.log(category)} */}
-                  {console.log(query === category)}
                   {category === "" ? "All Posts" : category}
                 </span>
               ))}

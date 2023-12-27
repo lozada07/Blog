@@ -26,7 +26,7 @@ export const getAllPostUser = errorHandler(
 
     response(res, 200, posts);
   },
-  "Joder",
+  "Not posts",
   404
 );
 
