@@ -29,6 +29,9 @@ const CardList = () => {
   return (
     <>
       {error && <div className="bg-red-600">{error}</div>}
+      {console.log("Cargando", loading)}
+      {console.log("Response", response)}
+
 
       {loading ? (
         <>

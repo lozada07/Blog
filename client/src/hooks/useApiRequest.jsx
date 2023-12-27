@@ -6,6 +6,7 @@ const useApiRequest = (requestFunction) => {
   const [response, setResponse] = useState(null);
 
   const makeRequest = async (req = null) => {
+    setLoading(true);
     const res = await requestFunction(req);
     if (res.error) {
       setError(res.message);
