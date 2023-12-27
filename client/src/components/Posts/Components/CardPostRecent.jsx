@@ -17,10 +17,10 @@ const CardPostRecent = ({ postRecent }) => {
             <div className="flex flex-col justify-center mt-4 space-y-4 lg:pr-2 pb-1">
               <div className="space-y-3  ">
                 <Categories categories={post.category} />
-                <h1 className=" text-xl line-clamp-3 font-semibold break-all text-neutral-700 ">
+                <h1 className=" text-xl line-clamp-2 font-semibold text-wrap text-neutral-700 ">
                   {post.title}
                 </h1>
-                <p className=" text-sm text-left line-clamp-3 text-neutral-900 break-all font-medium">
+                <p className=" text-sm line-clamp-3    text-neutral-900  font-medium">
                   {post.content.replace(/<[^>]*>/g, "")}
                 </p>
               </div>
