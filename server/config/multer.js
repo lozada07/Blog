@@ -6,7 +6,7 @@ const MIMETYPE = ["image/png", "image/jpg", "image/jpeg"];
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-     console.log("Entre", file.fieldname)
+     console.log("Entre", file)
     cb(null, file.fieldname === "photo" ? "uploads" : "uploads/photoUsers");
   },
   filename: (req, file, cb) => {
