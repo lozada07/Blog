@@ -61,8 +61,9 @@ export const createPost = errorHandler(
   async (req, res) => {
     req.body.author_id = req.user_id;
     req.body.category = JSON.parse(req.body.category);
-
+    console.log("Respuesta Controller", req.body);
     const newPost = await Post.create(req.body);
+    console.log("Nuevo post", newPost);
     response(res, 200, newPost);
   },
   "Title already exists",
