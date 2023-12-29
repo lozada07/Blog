@@ -13,22 +13,23 @@ https://github.com/lozada07/Blog.git
 ```
 ## Server Configuration
 
-1. **Environment Files**: Navigate to the `server` folder and create one file `.env`. Add the following content:
-    ```plaintext
-    MONGODB_URL=
 
-    JWT_SECRET_KEY=
-    FRONTEND_URL=
+1. **Environment Files**: Navigate to the `client` folder and create one file `.env.local`. Add the following content:
+
+    ```plaintext
+   MONGODB_URL=
+   
+	JWT_SECRET_KEY=
+	FRONTEND_URL=
 	PORT=
 
-    # Cloudinary Variables
-    CLOUD_NAME_CLOUDINARY=
+	# Cloudinary Variables
+	CLOUD_NAME_CLOUDINARY=
 	API_KEY_CLOUDINARY=
 	API_SECRET_CLOUDINARY=
 	SECURE_CLOUDINARY=
- ```
- 
- ### Install Dependencies
+    ```
+### Install Dependencies
 ```shell
 npm i
 ```
@@ -41,7 +42,7 @@ npm run dev
 1. **Environment Files**: Navigate to the `client` folder and create one file `.env.local`. Add the following content:
 
     ```plaintext
-   VITE_BACKEND_URL=http://localhost:8000
+   VITE_BACKEND_URL=
 
    #Emailjs Variables
 	VITE_EMAILJS_SERVICE=
@@ -65,5 +66,6 @@ Running commands with npm `npm run [command]`
 | :-------------- | :--------------------------------------- |
 | `dev`           | Starts a development instance of the app |
 | `install`           | Install dependencies of the app |
+
 
 
