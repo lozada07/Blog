@@ -1,6 +1,6 @@
+# MERN Blog App
+
 ![Blog App)](https://res.cloudinary.com/ddd9ivydu/image/upload/v1703889443/uploads/qjnmleikdglnb1tp18ph.png)
-
-
 
 ### Prerequisites
 
@@ -65,4 +65,5 @@ Running commands with npm `npm run [command]`
 | :-------------- | :--------------------------------------- |
 | `dev`           | Starts a development instance of the app |
 | `install`           | Install dependencies of the app |
+
 
