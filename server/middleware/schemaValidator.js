@@ -1,16 +1,24 @@
 import { ZodError } from "zod";
 import { resError } from "../utils/errorHandler.js";
+import { cloudinaryUpload } from "../utils/Cloudinary.js";
 
 export const schemaValidator = (schema) => (req, res, next) => {
   try {
     if (req.file) {
-      req.body.photo = req.file.filename;
+      cloudinaryUpload(req.file.path, req.file.destination).then((data) => {
+        req.body.photo = {
+          public_id: data.public_id,
+          secure_url: data.secure_url,
+        };
+        const body = schema.parse(req.body);
+        req.body = body;
+        next();
+      });
+    } else {
+      const body = schema.parse(req.body);
+      req.body = body;
+      next();
     }
-    const body = schema.parse(req.body);
-    req.body = body;
-    //Send Phote
-
-    next();
   } catch (error) {
     if (error instanceof ZodError) {
       resError(

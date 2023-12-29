@@ -6,7 +6,10 @@ const PostModel = new mongoose.Schema(
     content: { type: String, required: true },
     category: [{ type: String, required: true }],
     author_id: { type: mongoose.Types.ObjectId, ref: "User", required: true },
-    photo: { type: String, required: true },
+    photo: {
+      secure_url: String,
+      public_id: String,
+    },
     comments: {
       type: [{ type: mongoose.Types.ObjectId, ref: "Comment" }],
     },

@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import Post from "../models/post.model.js";
 import { errorHandler, resError } from "../utils/errorHandler.js";
 import { response } from "../utils/response.js";
+import { cloudinaryDelete } from "../utils/Cloudinary.js";
+import { string } from "zod";
 
 export const getAllPost = errorHandler(async (req, res) => {
   const { q } = req.query;
@@ -59,6 +61,7 @@ export const createPost = errorHandler(
   async (req, res) => {
     req.body.author_id = req.user_id;
     req.body.category = JSON.parse(req.body.category);
+
     const newPost = await Post.create(req.body);
     response(res, 200, newPost);
   },
@@ -69,6 +72,17 @@ export const createPost = errorHandler(
 export const updatePost = errorHandler(
   async (req, res) => {
     const { id } = req.params;
+
+    if (!(req.body.photo instanceof Object)) {
+      req.body.photo = JSON.parse(req.body.photo);
+    }
+
+    const post = await Post.findById(id);
+
+    if (post.photo.public_id != req.body.photo.public_id) {
+      cloudinaryDelete(post.photo.public_id);
+    }
+
     req.body.category = JSON.parse(req.body.category);
 
     const updatePost = await Post.findByIdAndUpdate(
@@ -88,6 +102,7 @@ export const deletePost = errorHandler(
 
     const post = await Post.findByIdAndDelete(id);
 
+    await cloudinaryDelete(post.photo.public_id);
     response(res, 200);
   },
   "Post not found",

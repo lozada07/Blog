@@ -27,17 +27,13 @@ export const postSchema = z.object({
     }
   }, "Categories must be an array"),
 
-  photo: z
-    .string({ required_error: "Phote is required" })
-    .min(1, "Phote is required"),
+  photo: z.any(),
 });
 
 export const updatePostSchema = z.object({
   title: z.string().trim().min(2, "Title is required").optional(),
   content: z.string().trim().min(2, "Description is required").optional(),
-  photo: z
-    .string({ required_error: "Phote is required" })
-    .min(1, "Phote is required"),
+  photo: z.any().optional(),
   category: z.string().refine((categories) => {
     try {
       JSON.parse(categories);
