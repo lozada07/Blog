@@ -13,7 +13,7 @@ const CardPost = ({ posts }) => {
     hover:shadow-black/40 hover:shadow-2xl "
           >
             <img
-              src={`${BACKEND_URL}/public/${post.photo}`}
+              src={post.photo.secure_url}
               alt=""
               className="bg-no-repeat bg-cover bg-center rounded-md h-64 w-full   "
             />

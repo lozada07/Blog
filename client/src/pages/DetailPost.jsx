@@ -57,7 +57,7 @@ const DetailPost = () => {
           <Author post={post} />
         </div>
         <img
-          src={`${BACKEND_URL}/public/${post.photo}`}
+          src={post.photo.secure_url}
           alt=""
           className="max-h-[600px] w-full bg-cover bg-center"
         />

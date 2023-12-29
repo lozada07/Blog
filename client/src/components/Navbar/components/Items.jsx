@@ -81,10 +81,11 @@ const Items = () => {
               isOpen ? "opacity-75" : "opacity-100"
             } rounded-full  `}
           >
+            {console.log(user.photo)}
             <img
               src={
-                user.photo
-                  ? `${BACKEND_URL}/public/photoUsers/${user.photo}`
+                Object.keys(user.photo).length > 0
+                  ? user.photo.secure_url
                   : avatar
               }
               className="h-9 w-9 rounded-full "

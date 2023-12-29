@@ -15,9 +15,7 @@ const FileUploadButton = ({ register, value, setValue, watch }) => {
         <div className="relative flex justify-center bg-gray-100 border-2  border-gray-300 border-dashed rounded-lg  ">
           <img
             src={
-              value instanceof FileList
-                ? URL.createObjectURL(value[0])
-                : `${BACKEND_URL}/public/${value}`
+              value instanceof FileList ? URL.createObjectURL(value[0]) : value
             }
             className="text-center max-h-[400px]"
           />

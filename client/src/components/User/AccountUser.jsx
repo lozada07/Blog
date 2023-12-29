@@ -146,8 +146,8 @@ const AccountUser = () => {
                               src={
                                 watch("avatar")?.length > 0
                                   ? URL.createObjectURL(watch("avatar")[0])
-                                  : user.photo
-                                  ? `${BACKEND_URL}/public/photoUsers/${user.photo}`
+                                  : Object.keys(user.photo).length > 0
+                                  ? user.photo.secure_url
                                   : avatar
                               }
                               className="

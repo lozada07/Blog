@@ -55,7 +55,7 @@ const UpdatePosts = () => {
     if (post && !initialCategories.current) {
       setCategories(post.category);
       setValue("title", post.title);
-      setValue("photo", post.photo);
+      setValue("photo", post.photo.secure_url);
       setValue("content", post.content);
       setValue("category", post.category[post.category.length - 1]);
     }
@@ -71,7 +71,9 @@ const UpdatePosts = () => {
     formData.set("category", JSON.stringify(data.category));
     formData.set(
       "photo",
-      data.photo instanceof FileList ? data.photo[0] : data.photo
+      data.photo instanceof FileList
+        ? data.photo[0]
+        : JSON.stringify(post.photo)
     );
     const res = await makeRequest({ formData, id });
 

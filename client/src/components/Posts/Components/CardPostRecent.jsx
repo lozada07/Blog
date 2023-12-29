@@ -10,7 +10,7 @@ const CardPostRecent = ({ postRecent }) => {
         <Link key={post._id} to={`/post/${post._id}`}>
           <div className=" flex  flex-col lg:flex-row space-x-3 rounded-md duration-300  lg:h-auto  pb-4  lg:pb-0   overflow-hidden hover:shadow-black/40 hover:shadow-2xl">
             <img
-              src={`${BACKEND_URL}/public/${post.photo}`}
+              src={post.photo.secure_url}
               alt=""
               className="bg-no-repeat bg-cover bg-center rounded-md h-60 lg:w-72 lg:h-72 w-full"
             />

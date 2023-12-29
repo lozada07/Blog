@@ -11,9 +11,7 @@ const Author = ({ post, size }) => {
     <div className="flex items-center space-x-2">
       <img
         src={` ${
-          post?.author_id?.photo
-            ? `${BACKEND_URL}/public/photoUsers/${post?.author_id?.photo}`
-            : avatar
+          post?.author_id?.photo ? post.author_id.photo.secure_url : avatar
         } `}
         className="h-9 w-9 rounded-full"
       />
