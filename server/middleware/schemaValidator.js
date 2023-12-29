@@ -10,8 +10,10 @@ export const schemaValidator = (schema) => (req, res, next) => {
           public_id: data.public_id,
           secure_url: data.secure_url,
         };
+        console.log("COMENZE ACÁ");
         const body = schema.parse(req.body);
         req.body = body;
+        console.log("LLEGUE ACÁ");
         next();
       });
     } else {
