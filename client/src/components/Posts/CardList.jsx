@@ -58,6 +58,11 @@ const CardList = () => {
           {response?.length > 0 ? (
             <>
               <CardPostRecent postRecent={postsRecent} />
+              {posts.length > 0 && (
+                <h1 className=" text-xl text-neutral-600 font-semibold">
+                  Posts
+                </h1>
+              )}
               <CardPost posts={posts} />
             </>
           ) : (

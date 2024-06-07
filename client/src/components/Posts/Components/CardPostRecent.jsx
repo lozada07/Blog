@@ -5,7 +5,7 @@ import Categories from "./Categories";
 
 const CardPostRecent = ({ postRecent }) => {
   return (
-    <div className="grid xs:grid-cols-1 sm:grid-cols-2 mx-3 lg:mx-0 gap-8">
+    <div className="grid xs:grid-cols-1 sm:grid-cols-2 mx-3 lg:mx-0 gap-8 mb-16">
       {postRecent?.map((post) => (
         <Link key={post._id} to={`/post/${post._id}`}>
           <div className=" flex  flex-col lg:flex-row space-x-3 rounded-md duration-300  lg:h-auto  pb-4  lg:pb-0   overflow-hidden hover:shadow-black/40 hover:shadow-2xl">
