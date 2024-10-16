@@ -16,9 +16,9 @@ const IndexRouters = () => {
     <Routes>
       <Route path="/" id="home" element={<Home />} />
       <Route path="/post/:id" id="create-post" element={<DetailPost />} />
+      <Route path="/contact" id="contact" element={<Contact />} />
       //ProtectRouters
       <Route element={<ProtectRouters />}>
-        <Route path="/contact" id="contact" element={<Contact />} />
         <Route path="/post" id="create-post" element={<CreatePosts />} />
         <Route path="/MyPosts" id="contact" element={<MyPosts />} />
 

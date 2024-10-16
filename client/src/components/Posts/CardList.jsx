@@ -17,6 +17,11 @@ const CardList = () => {
   const posts = response?.slice(2);
   const [query, setQuery] = useState(valor);
   useEffect(() => {
+    if (query == null) {
+      setQuery("");
+      localStorage.setItem("valor", query);
+    }
+
     makeRequest(query);
   }, [query]);
 

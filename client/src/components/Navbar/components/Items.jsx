@@ -47,6 +47,9 @@ const Items = () => {
 
   return (
     <>
+      <div className="mr-2 ">
+        <SearchModal />
+      </div>
       {!isAuthenticated ? (
         <div className="flex flex-row items-center justify-center gap-3">
           <Link
@@ -64,9 +67,6 @@ const Items = () => {
         </div>
       ) : (
         <div className="flex items-center">
-          <div className="mr-2 ">
-            <SearchModal />
-          </div>
           <Link to="/post">
             <button className="px-2 py-2 mr-2 bg-primary rounded-md text-white text-sm font-medium transitionButton ">
               New post
