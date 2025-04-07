@@ -8,15 +8,17 @@ import { string } from "zod";
 export const getAllPost = errorHandler(async (req, res) => {
   const { q } = req.query;
 
+  
   const post = await Post.find({
     $or: [{ category: q }, { title: { $regex: new RegExp(q, "i") } }],
   })
-    .populate({
-      path: "author_id",
-      select: "-password",
-    })
-    .sort({ _id: -1 });
-
+  .populate({
+    path: "author_id",
+    select: "-password",
+  })
+  .sort({ _id: -1 });
+  
+  console.log("Entre");
   response(res, 200, post);
 });
 export const getAllPostUser = errorHandler(
